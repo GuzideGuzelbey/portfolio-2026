@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Organic flowing animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes wave {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+  }
+  
+  @keyframes breathe {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-wave {
+    animation: wave 3s ease-in-out infinite;
+  }
+  
+  .animate-breathe {
+    animation: breathe 4s ease-in-out infinite;
+  }
+  
+  .animate-slide-in-up {
+    animation: slide-in-up 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-in-left {
+    animation: slide-in-left 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slide-in-right 0.6s ease-out forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+  
+  /* Organic shapes and flowing lines */
+  .organic-blob {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  
+  .organic-blob-2 {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-bounce {
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  :root {
+    /* Nature-inspired palette: Earthy, Fresh, Botanical blend - Comfortable light mode */
+    --background: 35 18% 88%;
+    --foreground: 25 35% 18%;
+    
+    --card: 35 15% 93%;
+    --card-foreground: 25 35% 18%;
+    
+    --popover: 35 15% 93%;
+    --popover-foreground: 25 35% 18%;
+    
+    /* Warm terracotta - Primary accent (WCAG AAA compliant) */
+    --primary: 15 75% 42%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Soft sage green - Secondary */
+    --secondary: 140 22% 82%;
+    --secondary-foreground: 140 35% 22%;
+    
+    /* Cream/beige - Muted (WCAG AAA compliant) */
+    --muted: 40 20% 82%;
+    --muted-foreground: 25 30% 35%;
+    
+    /* Soft coral - Accent */
+    --accent: 10 60% 65%;
+    --accent-foreground: 25 35% 18%;
+    
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Improved border contrast (WCAG AA compliant) */
+    --border: 40 25% 75%;
+    --input: 40 25% 75%;
+    --ring: 15 70% 48%;
+    
+    --chart-1: 15 70% 48%;
+    --chart-2: 140 45% 50%;
+    --chart-3: 10 70% 75%;
+    --chart-4: 45 85% 65%;
+    --chart-5: 160 40% 55%;
+    
+    --radius: 1rem;
+    
+    --sidebar-background: 30 25% 98%;
+    --sidebar-foreground: 25 30% 20%;
+    --sidebar-primary: 15 70% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 140 20% 88%;
+    --sidebar-accent-foreground: 140 30% 25%;
+    --sidebar-border: 40 25% 75%;
+    --sidebar-ring: 15 70% 48%;
+  }
+  
+  .dark {
+    /* Dark mode with warm, earthy tones */
+    --background: 25 25% 12%;
+    --foreground: 30 20% 92%;
+    
+    --card: 25 20% 15%;
+    --card-foreground: 30 20% 92%;
+    
+    --popover: 25 20% 15%;
+    --popover-foreground: 30 20% 92%;
+    
+    /* Lighter terracotta for dark mode (WCAG AAA compliant) */
+    --primary: 15 75% 70%;
+    --primary-foreground: 25 25% 12%;
+    
+    /* Muted sage for dark mode */
+    --secondary: 140 15% 25%;
+    --secondary-foreground: 140 20% 88%;
+    
+    --muted: 25 15% 20%;
+    --muted-foreground: 30 15% 65%;
+    
+    /* Soft coral accent */
+    --accent: 10 60% 60%;
+    --accent-foreground: 30 20% 92%;
+    
+    --destructive: 0 63% 45%;
+    --destructive-foreground: 30 20% 92%;
+    
+    /* Improved border contrast (WCAG AA compliant) */
+    --border: 25 20% 35%;
+    --input: 25 20% 35%;
+    --ring: 15 75% 70%;
+    
+    --chart-1: 15 75% 70%;
+    --chart-2: 140 45% 55%;
+    --chart-3: 10 60% 60%;
+    --chart-4: 45 75% 60%;
+    --chart-5: 160 40% 50%;
+    
+    --sidebar-background: 25 25% 12%;
+    --sidebar-foreground: 30 20% 92%;
+    --sidebar-primary: 15 75% 70%;
+    --sidebar-primary-foreground: 25 25% 12%;
+    --sidebar-accent: 140 15% 25%;
+    --sidebar-accent-foreground: 140 20% 88%;
+    --sidebar-border: 25 20% 35%;
+    --sidebar-ring: 15 75% 70%;
+  }
+}
+
+@layer base {
+  /* CSS Reset and Normalization */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Remove default margins and paddings from common elements */
+  h1, h2, h3, h4, h5, h6,
+  p, blockquote, pre,
+  dl, dd, ol, ul,
+  figure, hr,
+  fieldset, legend {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Remove list styles */
+  ol, ul {
+    list-style: none;
+  }
+  
+  /* Inherit fonts for inputs and buttons */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* Remove default button styles */
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Images and media */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* Remove built-in form typography styles */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /* Links */
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+  
+  /* Monospace for code */
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+  }
+  
+  /* Reduced motion support for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* Focus visible styles for better keyboard navigation */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
