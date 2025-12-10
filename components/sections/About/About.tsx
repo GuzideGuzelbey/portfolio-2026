@@ -4,8 +4,13 @@ import { Heart, Users, Leaf } from "lucide-react";
 import { PassionCard } from "./PassionCard";
 import { AboutContent } from "./AboutContent";
 import { AboutQuote } from "./AboutQuote";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/lib/translations";
 
 export function About() {
+  const { language } = useLanguage();
+  const t = getTranslation(language);
+  
   const passions = [
     {
       icon: Heart,
@@ -58,10 +63,10 @@ export function About() {
             id="about-heading"
             className="text-3xl md:text-4xl font-semibold mb-4"
           >
-            About Me
+            {t.about.title}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Creating with Purpose & Passion
+            {t.about.passions.title}
           </p>
         </div>
 

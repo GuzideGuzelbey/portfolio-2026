@@ -5,8 +5,13 @@ import { HeroBackground } from "./HeroBackground";
 import { HeroHeading } from "./HeroHeading";
 import { HeroButtons } from "./HeroButtons";
 import { HeroScrollIndicator } from "./HeroScrollIndicator";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/lib/translations";
 
 export function Hero() {
+  const { language } = useLanguage();
+  const t = getTranslation(language);
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -29,7 +34,7 @@ export function Hero() {
 
           {/* Description with organic feel */}
           <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-            {site.description}
+            {t.hero.description}
           </p>
 
           {/* CTA buttons with playful interaction */}

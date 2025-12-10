@@ -1,7 +1,11 @@
+"use client";
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, ExternalLink } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/lib/translations";
 
 interface ProjectCardProps {
   id: string;
@@ -13,6 +17,9 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ title, description, tech, github, live }: ProjectCardProps) {
+  const { language } = useLanguage();
+  const t = getTranslation(language);
+  
   return (
     <Card className="flex flex-col hover:shadow-lg transition-shadow">
       <CardHeader>
@@ -49,7 +56,7 @@ export function ProjectCard({ title, description, tech, github, live }: ProjectC
               aria-label={`View ${title} on GitHub`}
             >
               <Github aria-hidden="true" />
-              Code
+              {t.projects.viewCode}
             </a>
           </Button>
         )}
@@ -67,7 +74,7 @@ export function ProjectCard({ title, description, tech, github, live }: ProjectC
               aria-label={`View ${title} live demo`}
             >
               <ExternalLink aria-hidden="true" />
-              Live
+              {t.projects.viewLive}
             </a>
           </Button>
         )}

@@ -3,8 +3,13 @@
 import { projects, site } from "@/lib/data";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectsFooter } from "./ProjectsFooter";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/lib/translations";
 
 export function Projects() {
+  const { language } = useLanguage();
+  const t = getTranslation(language);
+  
   return (
     <section
       id="projects"
@@ -14,7 +19,7 @@ export function Projects() {
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 id="projects-heading" className="text-3xl md:text-4xl font-semibold mb-4">
-            Featured Projects
+            {t.projects.title}
           </h2>
           <p className="text-lg text-muted-foreground">
             A selection of projects showcasing my development journey

@@ -2,6 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/lib/translations";
 
 interface HeroButtonsProps {
   onProjectsClick: () => void;
@@ -9,6 +11,9 @@ interface HeroButtonsProps {
 }
 
 export function HeroButtons({ onProjectsClick, onContactClick }: HeroButtonsProps) {
+  const { language } = useLanguage();
+  const t = getTranslation(language);
+  
   return (
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400">
       <Button
@@ -18,7 +23,7 @@ export function HeroButtons({ onProjectsClick, onContactClick }: HeroButtonsProp
       >
         <span className="relative z-10 flex items-center gap-2">
           <Sparkles aria-hidden="true" />
-          View My Work
+          {t.hero.viewWork}
         </span>
         <span
           className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -32,7 +37,7 @@ export function HeroButtons({ onProjectsClick, onContactClick }: HeroButtonsProp
         onClick={onContactClick}
         className="group border-2 transition-bounce hover:scale-105 hover:border-primary hover:bg-primary/5"
       >
-        Let's Connect
+        {t.hero.getInTouch}
       </Button>
     </div>
   );
