@@ -1,6 +1,6 @@
 # Portfolio Website - Güzide Güzelbey Esengün
 
-A modern, accessible, and bilingual portfolio website showcasing my journey from Product Design to Frontend Development.
+A modern, accessible, and bilingual portfolio website showcasing my journey from Product Design to Software Development.
 
 ## Design Concept
 
